@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "i-cell-group": "../../dist/cell-group/index",
+    "i-word-cell": "../../dist/word-cell/index",
+    "i-row": "../../dist/row/index",
+    "i-col": "../../dist/col/index",
+    "i-button": "../../dist/button/index",
+    "i-icon": "../../dist/icon/index"
+  }
+}

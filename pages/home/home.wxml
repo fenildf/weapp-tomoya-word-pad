@@ -1,0 +1,21 @@
+<!--pages/home/home.wxml-->
+<view class="flex-container">
+  <view class="occupy-Y">
+    <i-cell-group>
+      <i-word-cell
+        wx:for="{{words}}"
+        title="{{item.word}}"
+        label="{{item.note}}"
+        prop="{{item.prop}}"
+      ></i-word-cell>
+    </i-cell-group>
+  </view>
+  <i-row>
+    <i-col span="16">
+      <i-button bind:click="" type="success" shape="circle" size="small">NEW WORD</i-button>
+    </i-col>
+    <i-col span="8">
+      <i-button bind:click="" type="primary" shape="circle" size="small"><i-icon type="setup" size="28" color="white"></i-icon></i-button>
+    </i-col>
+  </i-row>
+</view>
