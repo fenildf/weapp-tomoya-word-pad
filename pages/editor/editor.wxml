@@ -1,2 +1,47 @@
 <!--pages/editor/editor.wxml-->
+<view class="flex-container">
+  <view class="occupy-Y">
+    <view class="section">
+      <view class="weui-cells__title">WORD</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+            <input bindinput="updateWord" value="{{_word}}" class="weui-input" maxlength="{{wordMaxLength}}"/>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="section">
+      <view class="weui-cells__title">SELECT SPEECH</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__bd">
+            <picker mode="selector" range="{{props}}" bindchange="updateProp" value="{{selectedPropIndex}}">
+              <view class="weui-select">{{props[selectedPropIndex]}} / {{propsCH[selectedPropIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="section">
+      <view class="weui-cells__title">NOTE</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" bindinput="updateNote" value="{{_note}}" maxlength="{{noteMaxLength}}"></textarea>
+            <view class="weui-textarea-counter">{{noteCurLength}}/{{noteMaxLength}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 
+  <i-row>
+    <i-col span="16">
+      <i-button bind:click="submitWord" shape="circle" size="small" type="success">{{btnIndex}}</i-button>
+    </i-col>
+    <i-col span="8">
+      <i-button bind:click="cancelWord" type="primary" shape="circle" size="small"><i-icon type="undo" size="28" color="white"></i-icon></i-button>
+    </i-col>
+  </i-row>
+</view>

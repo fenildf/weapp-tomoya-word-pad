@@ -12,7 +12,15 @@ Page({
     words: [{
       word: 'good',
       note: 'goodhh',
-      prop: 2
+      prop: 'n'
+    }, {
+      word: 'good',
+      note: 'goodhh',
+      prop: 'adj'
+    }, {
+      word: 'good',
+      note: 'goodhh',
+      prop: 'adv'
     }]
   },
 

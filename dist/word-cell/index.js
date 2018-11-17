@@ -1,7 +1,3 @@
-import {
-    word_props
-} from '../../services/const.js'
-
 const warn = (msg, getValue) => {
     console.warn(msg);
     console.log('接受到的值为：', getValue);
@@ -26,12 +22,8 @@ Component({
             type: String
         },
         // 笔记
-        label: {
+        note: {
             type: String
-        },
-        // 词性代号
-        value: {
-            type: Number
         },
         // 只有点击 footer 区域才触发 tab 事件
         onlyTapFooter: {
@@ -44,8 +36,8 @@ Component({
         },
         // 词性
         prop: {
-            type: Number,
-            value: 5
+            type: String,
+            value: 'other'
         },
         // 链接类型，可选值为 navigateTo，redirectTo，switchTab，reLaunch
         linkType: {
@@ -60,15 +52,6 @@ Component({
 
     data: {
         isLastCell: true,
-        propColor: '',
-        propName: ''
-    },
-
-    attached: function() {
-        this.setData({
-            propColor: word_props[this.properties.prop].color,
-            propName: word_props[this.properties.prop].prop
-        })
     },
 
     methods: {

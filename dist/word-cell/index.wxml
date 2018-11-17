@@ -3,17 +3,14 @@
         <slot name="icon"></slot>
     </view>
     <view class="i-cell-bd">
-        <view wx:if="{{ title }}" class="i-cell-text">{{ title }}</view>
-        <view wx:if="{{ label }}" class="i-cell-desc">
-            <text style="background-color: {{propColor}}" class="prop-name">{{ propName }}</text>
-            <text >  {{ label }}</text>
+        <view class="i-cell-text">{{ title }}</view>
+        <view class="i-cell-desc">
+            <text class="prop-name prop-{{prop}}">{{ prop }}</text>
+            <text >  {{ note }}</text>
         </view>
         <slot></slot>
     </view>
     <view catchtap="navigateTo" class="i-cell-ft">
-        <block wx:if="{{value}}">{{ value }}</block>
-        <block wx:else>
-            <slot name="footer"></slot>
-        </block>
+        <slot name="footer"></slot>
     </view>
 </view>

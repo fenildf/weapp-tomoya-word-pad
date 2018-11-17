@@ -5,9 +5,13 @@
       <i-word-cell
         wx:for="{{words}}"
         title="{{item.word}}"
-        label="{{item.note}}"
+        note="{{item.note}}"
         prop="{{item.prop}}"
-      ></i-word-cell>
+        is-link
+        url="/pages/editor/editor?index={{index}}&word={{item.word}}&note={{item.note}}&prop={{item.prop}}"
+      >
+        <i-icon slot="icon" size="16" type="collection_fill" />
+      </i-word-cell>
     </i-cell-group>
   </view>
   <i-row>
