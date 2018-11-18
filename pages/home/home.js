@@ -1,6 +1,7 @@
 // pages/home/home.js
 import {
-  getWords
+  getWords,
+  markWord
 } from '../../services/wordManager'
 
 Page({
@@ -9,26 +10,46 @@ Page({
    * 页面的初始数据
    */
   data: {
-    words: [{
-      word: 'good',
-      note: 'goodhh',
-      prop: 'n'
-    }, {
-      word: 'good',
-      note: 'goodhh',
-      prop: 'adj'
-    }, {
-      word: 'good',
-      note: 'goodhh',
-      prop: 'adv'
-    }]
+    words: []
+  },
+
+  markHandler: function(evt) {
+    const { index } = evt.currentTarget.dataset
+    const [isMarked, error] = markWord(index)
+    if (error) {
+      console.error(error)
+      return 
+    }
+    const _setDataObj = {}
+    _setDataObj[`words[${index}].isMarked`] = isMarked
+    this.setData(_setDataObj)
+  },
+
+  editHandler: function(evt) {
+    const { index } = evt.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/editor/editor?index=${index}`,
+      complete: function() {
+        console.log(`edit ${index}`)
+      }
+    })
+  },
+
+  addHandler: function(evt) {
+    wx.navigateTo({
+      url: `/pages/editor/editor?index=-1`
+    })
+  },
+
+  settingHandler: function(evt) {
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -42,14 +63,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // var [words, error] = getWords()
-    // if (error) {
-
-    // } else {
-    //   this.setData({
-    //     words
-    //   })
-    // }
+    const [words, error] = getWords()
+    if (error) {
+      console.error(error)
+      return 
+    }
+    this.setData({
+      words
+    })
   },
 
   /**

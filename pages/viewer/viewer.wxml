@@ -1,0 +1,12 @@
+<!--pages/viewer/viewer.wxml-->
+<view >
+  <i-word-panel prop="{{prop}}" word="{{word}}"></i-word-panel>
+  <i-panel title="NOTE">
+    <view class="panel-content">{{note}}</view>
+  </i-panel>
+  <i-panel title="TRANSLATE">
+    <view class="panel-content">
+      <rich-text nodes="{{transContent}}"></rich-text>
+    </view>
+  </i-panel>
+</view>

@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.0",
-	"appid": "wx02fa643e64f7e9cb",
+	"appid": "wxb2d04907e6bd1046",
 	"projectname": "tomoya-word-pad-origin",
 	"debugOptions": {
 		"hidedInDevtools": []

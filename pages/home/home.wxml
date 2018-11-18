@@ -8,18 +8,24 @@
         note="{{item.note}}"
         prop="{{item.prop}}"
         is-link
-        url="/pages/editor/editor?index={{index}}&word={{item.word}}&note={{item.note}}&prop={{item.prop}}"
+        url="/pages/viewer/viewer?index={{index}}"
       >
-        <i-icon slot="icon" size="16" type="collection_fill" />
+        <view slot="icon" bind:tap="markHandler" data-index="{{index}}">
+          <i-icon wx:if="{{item.isMarked}}" size="18" type="collection_fill" color="yellow"/>
+          <i-icon wx:else size="18" type="collection"></i-icon>
+        </view>
+        <view slot="footer" bind:tap="editHandler" data-index="{{index}}">
+          <i-icon size="18" type="brush"/>
+        </view>
       </i-word-cell>
     </i-cell-group>
   </view>
   <i-row>
     <i-col span="16">
-      <i-button bind:click="" type="success" shape="circle" size="small">NEW WORD</i-button>
+      <i-button bind:click="addHandler" type="success" shape="circle" size="small">NEW WORD</i-button>
     </i-col>
     <i-col span="8">
-      <i-button bind:click="" type="primary" shape="circle" size="small"><i-icon type="setup" size="28" color="white"></i-icon></i-button>
+      <i-button bind:click="settingHandler" type="primary" shape="circle" size="small"><i-icon type="setup" size="28" color="white"></i-icon></i-button>
     </i-col>
   </i-row>
 </view>

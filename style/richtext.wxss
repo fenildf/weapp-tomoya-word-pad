@@ -1,0 +1,23 @@
+.rich-content {
+  font-size: 14px;
+  white-space: pre;
+  color: #495060;
+}
+
+.rich-subtitle {
+  padding: 20px 0 6px;
+  color: #1c2438;
+}
+
+.rich-footer {
+  padding-top: 30px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  color: #80848f;
+}
+
+.rich-error {
+  font-size: 14px;
+  color: #80848f;
+}

@@ -25,10 +25,6 @@ Component({
         note: {
             type: String
         },
-        // 只有点击 footer 区域才触发 tab 事件
-        onlyTapFooter: {
-            type: Boolean
-        },
         // 是否展示右侧箭头并开启尝试以 url 跳转
         isLink: {
             type: null,
@@ -51,7 +47,7 @@ Component({
     },
 
     data: {
-        isLastCell: true,
+        isLastCell: false,
     },
 
     methods: {
@@ -75,9 +71,7 @@ Component({
             wx[this.data.linkType].call(wx, {url});
         },
         handleTap () {
-            if (!this.data.onlyTapFooter) {
-                this.navigateTo();
-            }
+            this.navigateTo();
         },
 
         updateIsLastCell (isLastCell) {

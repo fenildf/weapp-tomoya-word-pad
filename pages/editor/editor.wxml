@@ -6,7 +6,7 @@
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
           <view class="weui-cell__bd">
-            <input bindinput="updateWord" value="{{_word}}" class="weui-input" maxlength="{{wordMaxLength}}"/>
+            <input bindinput="updateWord" value="{{word}}" class="weui-input" maxlength="{{wordMaxLength}}"/>
           </view>
         </view>
       </view>
@@ -28,7 +28,7 @@
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell">
           <view class="weui-cell__bd">
-            <textarea class="weui-textarea" bindinput="updateNote" value="{{_note}}" maxlength="{{noteMaxLength}}"></textarea>
+            <textarea class="weui-textarea" bindinput="updateNote" value="{{note}}" maxlength="{{noteMaxLength}}"></textarea>
             <view class="weui-textarea-counter">{{noteCurLength}}/{{noteMaxLength}}</view>
           </view>
         </view>

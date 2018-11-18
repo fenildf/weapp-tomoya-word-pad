@@ -1,8 +1,8 @@
-<view bindtap="handleTap" class="i-class i-cell {{ isLastCell ? 'i-cell-last' : '' }} {{ isLink ? 'i-cell-access' : '' }}">
+<view class="i-class i-cell {{ isLastCell ? 'i-cell-last' : '' }}">
     <view class="i-cell-icon">
         <slot name="icon"></slot>
     </view>
-    <view class="i-cell-bd">
+    <view class="i-cell-bd" catch:tap="handleTap">
         <view class="i-cell-text">{{ title }}</view>
         <view class="i-cell-desc">
             <text class="prop-name prop-{{prop}}">{{ prop }}</text>
@@ -10,7 +10,7 @@
         </view>
         <slot></slot>
     </view>
-    <view catchtap="navigateTo" class="i-cell-ft">
+    <view class="i-cell-ft">
         <slot name="footer"></slot>
     </view>
 </view>

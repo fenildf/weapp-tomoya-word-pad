@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "i-word-panel": "../../dist/word-panel/index",
+    "i-panel": "../../dist/panel/index"
+  }
+}

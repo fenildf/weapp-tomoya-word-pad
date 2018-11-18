@@ -1,4 +1,6 @@
 // pages/editor/editor.js
+import { getWords, addWord, updateWord } from '../../services/wordManager'
+
 const PROPS = ['v', 'n', 'adj', 'adv', 'abbr', 'other']
 const PROPS_CH = ['動詞', '名詞', '形容詞', '副詞', '縮寫', '其他']
 
@@ -9,10 +11,10 @@ Page({
    */
   data: {
     // word: 
-    _word: '',
+    word: '',
     wordMaxLength: 30,
     // note:
-    _note: '',
+    note: '',
     noteCurLength: 0,
     noteMaxLength: 100,
     // prop:
@@ -27,7 +29,7 @@ Page({
   updateWord: function(evt) {
     const { value } = evt.detail
     this.setData({
-      _word: value
+      word: value
     })
   },
 
@@ -41,44 +43,70 @@ Page({
   updateNote: function(evt) {
     const { value } = evt.detail
     this.setData({
-      _note: value,
-      noteCurLength: _note.length
+      note: value,
+      noteCurLength: value.length
     })
+  },
+
+  submitWord: function() {
+    const newWord = {
+      word: this.data.word,
+      prop: PROPS[this.data.selectedPropIndex],
+      note: this.data.note
+    }
+
+    const { index } = this.data
+    var res, error 
+
+    if (index < 0) {
+      [res, error] = addWord(newWord)
+    } else {
+      [res, error] = updateWord(index, newWord)
+    }
+    if (error) {
+      console.error(error)
+    } else {
+      console.log('set storage success')
+      wx.navigateBack({ delta: 1 })
+    }
+  },
+
+  cancelWord: function() {
+    wx.navigateBack({ delta: 1 })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const {
-      index,
-      word,
-      prop,
-      note
-    } = options
+    const { index } = options
 
-    if (index < 0) { 
+    // Now it's going to add a new word. 
+    // All inputs remain empty
+    if (index < 0) {
       this.setData({
         index,
         btnIndex: 'ADD'
       })
-    } else {
-      this.setData({
-        index,
-        btnIndex: 'UPDATE',
-        _word: word,
-        _note: note,
-        selectedPropIndex: PROPS.indexOf(prop)
-      })
+      return 
     }
-  },
 
-  submitWord: function() {
-    
-  },
+    const [words, error] = getWords()
+    if (error) {
+      console.error(error)
+      wx.navigateBack({ delta: 1 })
+      return 
+    }
 
-  cancelWord: function() {
-
+    const { word, note, prop } = words[index]
+    this.setData({
+      index,
+      btnIndex: 'UPDATE',
+      word,
+      note,
+      noteCurLength: note.length,
+      selectedPropIndex: PROPS.indexOf(prop)
+    })
   },
 
   /**

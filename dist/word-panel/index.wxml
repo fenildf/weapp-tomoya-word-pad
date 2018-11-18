@@ -1,0 +1,8 @@
+<view class="i-class i-panel">
+    <view class="i-panel-title">
+        <text class="prop-{{prop}} prop-name">{{prop}}</text>
+    </view>
+    <view class="i-panel-content">
+        <text class="i-panel-content-text">{{word}}</text>
+    </view>
+</view>

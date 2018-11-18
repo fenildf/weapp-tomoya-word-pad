@@ -1,0 +1,30 @@
+.prop-name {
+  padding-left: 10rpx; 
+  padding-right: 10rpx
+}
+
+.prop-n {
+  color: white;
+  background-color: #66CCCC;
+}
+
+.prop-adj {
+  background-color: #CCFF66
+}
+
+.prop-adv {
+  background-color: #666699;
+  color: white;
+}
+
+.prop-abbr {
+  background-color: #FF6666
+}
+
+.prop-v {
+  background-color: #FF99CC
+}
+
+.prop-other {
+  background-color: #FFCC99
+}
