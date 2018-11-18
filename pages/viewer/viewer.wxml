@@ -6,7 +6,12 @@
   </i-panel>
   <i-panel title="TRANSLATE">
     <view class="panel-content">
-      <rich-text nodes="{{transContent}}"></rich-text>
+      <block wx:if="{{transContent == ''}}">
+        <i-spin size="large"></i-spin>
+      </block>
+      <block wx:else>
+        <rich-text nodes="{{transContent}}"></rich-text>
+      </block>
     </view>
   </i-panel>
 </view>

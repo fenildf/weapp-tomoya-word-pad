@@ -1,4 +1,5 @@
 /* pages/viewer/viewer.wxss */
 .panel-content {
   padding: 15px;
+  position: relative;
 }

@@ -1,6 +1,7 @@
 /**app.wxss**/
 @import 'style/weui.wxss';
 @import 'style/richtext.wxss';
+@import 'style/font.wxss';
 
 .container {
   height: 100%;

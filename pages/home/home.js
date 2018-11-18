@@ -42,7 +42,9 @@ Page({
   },
 
   settingHandler: function(evt) {
-
+    wx.navigateTo({
+      url: `/pages/settings/settings`
+    })
   },
 
   /**
@@ -63,11 +65,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    const [words, error] = getWords()
+    var [words, error] = getWords()
     if (error) {
       console.error(error)
       return 
     }
+    words = words.sort((a, b) => a.ts > b.ts)
     this.setData({
       words
     })

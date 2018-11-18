@@ -3,10 +3,12 @@ const bingLogoURL = 'https://images.g2crowd.com/uploads/product/image/social_lan
 
 const TRANS_ERROR = `Ooooops... Something's wrong with online translation...`
 
+import { getSam } from "./settingsManager";
+
 function bingTransToHTML(json) {
-  var resHTML = '<div>'
+  var resHTML = `<div>`
   resHTML += `<h4>${json.word}</h4>`
-  if (json.pronunciation) {
+  if (json.pronunciation && json.pronunciation.AmE && json.pronunciation.BrE) {
     resHTML += `<h5 class='rich-subtitle'>Pronunciation</h5>`
     resHTML += `<div class='rich-content'>`
       resHTML += `<strong>AmE: </strong>`
@@ -16,11 +18,20 @@ function bingTransToHTML(json) {
     resHTML += `</div>`
   }
   if (json.defs) {
-    resHTML += `<div></div>`
     resHTML += `<h5 class='rich-subtitle'>Definitions</h5>`
     json.defs.forEach((def) => {
       resHTML += `<div class='rich-content'>`
       resHTML += `${def.pos}   ${def.def}`
+      resHTML += `</div>`
+    })
+  }
+  if (json.sams) {
+    resHTML += `<h5 class='rich-subtitle'>Samples</h5>`
+    json.sams.forEach((sam) => {
+      resHTML += `<div class='rich-content'>`
+      resHTML += `<p style='font-weight: 600'>· ${sam.chn}</p>`
+      resHTML += `<p>· ${sam.eng}</p>`
+      resHTML += `<br/>`
       resHTML += `</div>`
     })
   }
@@ -40,9 +51,14 @@ function errorToHTML() {
   return resHTML
 }
 
-function bingTrans(word, needSam) {
-  const url = bingAPI
+function bingTrans(word) {
   return new Promise((resolve, reject) => {
+    const [needSam = false, error] = getSam()
+    if (error) {
+      return resolve([null, error])
+    }
+
+    const url = bingAPI
     wx.request({
       url,
       data: {

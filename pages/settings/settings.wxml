@@ -1,0 +1,22 @@
+<!-- pages/settings/settings.wxml -->
+<view class="flex-container">
+  <i-panel title="Show Samples in Translations">
+    <i-cell title="{{needSam? 'Show': 'Hide'}}">
+      <i-switch value="{{needSam}}" bind:change="changeSamHandler" slot="footer"></i-switch>
+    </i-cell>
+  </i-panel>
+  <i-panel title="Auto-Sync">
+    <i-cell title="{{autoSync? 'Yes': 'No'}}">
+      <i-switch value="{{autoSync}}" bind:change="changeSyncHandler" slot="footer"></i-switch>
+    </i-cell>
+  </i-panel>
+  <i-panel title="Gist ID">
+    <i-input value="{{gistID}}" placeholder="If you don't have one, just generate. " bind:change="changeIDHandler" bind:blur="blurIDHandler"/>
+  </i-panel>
+  <i-panel title="Generate A New Gist ID">
+    <i-button type="default" size="small" bind:tap="generateHandler">Generate</i-button>
+  </i-panel>
+  <i-panel title="Sync Now">
+    <i-button type="default" size="small" bind:tap="syncHandler">Sync</i-button>
+  </i-panel>
+</view>

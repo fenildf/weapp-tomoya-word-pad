@@ -4,7 +4,8 @@
     "pages/editor/editor",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/viewer/viewer"
+    "pages/viewer/viewer",
+    "pages/settings/settings"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -4,6 +4,7 @@
     <i-cell-group>
       <i-word-cell
         wx:for="{{words}}"
+        wx:key="{{index}}"
         title="{{item.word}}"
         note="{{item.note}}"
         prop="{{item.prop}}"

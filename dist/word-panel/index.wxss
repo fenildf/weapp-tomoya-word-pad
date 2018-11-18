@@ -7,7 +7,7 @@
   font-size: 14px;
   line-height: 1;
   color: #1c2438;
-  padding: 10px 15px 6px;
+  padding: 20px 15px 6px;
 }
 
 .i-panel-content {

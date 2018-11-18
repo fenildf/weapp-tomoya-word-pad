@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "i-word-panel": "../../dist/word-panel/index",
+    "i-spin": "../../dist/spin/index",
     "i-panel": "../../dist/panel/index"
   }
 }
